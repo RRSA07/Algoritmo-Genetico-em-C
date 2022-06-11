@@ -305,24 +305,24 @@ void fitness(double pop_decodificada[][Np],double a2[][Np]){
 void precisao(float distancia_acoplamento,double precisao_calc[][Np],double a2[][Np],double diferenca[][Np]){
 	int i;
 	double a[1][Np],s[1][Np],somatorio=0.0;
-	for(i=0;i<Np;i++){ //aptidão padronizada
+	for(i=0;i<Np;i++){ //aptidÃ£o padronizada
 		diferenca[0][i]=distancia_acoplamento-a2[0][i];
 	}
 	for(i=0;i<Np;i++){ //squared error
 		s[0][i]=pow(diferenca[0][i],2);
 	}
-	for(i=0;i<Np;i++){ //modulo do valor da diferença
+	for(i=0;i<Np;i++){ //modulo do valor da diferenÃ§a
 		if(diferenca[0][i]<0){
 			diferenca[0][i]=diferenca[0][i]*-1;
 		}
 	}
-	for(i=0;i<Np;i++){ //aptidão ajustada
+	for(i=0;i<Np;i++){ //aptidÃ£o ajustada
 		a[0][i]=1/(1+s[0][i]);
 	}
 	for(i=0;i<Np;i++){
 		somatorio=somatorio+a[0][i];
 	}
-	for(i=0;i<Np;i++){ //aptidão normalizada
+	for(i=0;i<Np;i++){ //aptidÃ£o normalizada
 		precisao_calc[0][i]=a[0][i]/somatorio;
 	}
 }
@@ -533,15 +533,15 @@ int main(){
 	FILE *n2;
 	FILE *lambda;
 	FILE *populacao;
-	Acoplamento=fopen("Distância de Acoplamento 20.txt","w+");
+	Acoplamento=fopen("DistÃ¢ncia de Acoplamento 20.txt","w+");
 	if(Acoplamento==NULL){
 		printf("Houve um erro ao abrir o arquivo\n");
 	}
-	raio=fopen("Raio do núcleo 20.txt","w+");
+	raio=fopen("Raio do nÃºcleo 20.txt","w+");
 	if(raio==NULL){
 		printf("Houve um erro ao abrir o arquivo\n");
 	}
-	Distancia=fopen("Distância entre os guias 20.txt","w+");
+	Distancia=fopen("DistÃ¢ncia entre os guias 20.txt","w+");
 	if(Distancia==NULL){
 		printf("Houve um erro ao abrir o arquivo\n");
 	}
@@ -563,7 +563,7 @@ int main(){
 	}
 	printf("Digite a Distancia de acoplamento para o acoplador baseado em fibra optica a ser otimizado\n");
 	scanf("%f",&distancia_acoplamento);
-	//inicializando as funções
+	//inicializando as funÃ§Ãµes
 	gera_populacao(populacao_inicial,n);
 	decodifica(populacao_inicial,populacao_decodificada);
 	fitness(populacao_decodificada,a2);
@@ -595,6 +595,6 @@ int main(){
     		fprintf(populacao,"%.16f\n",a2[0][i]);
     	}
     	fprintf(populacao,"\n\n");
-	}while(contador<=100);
+	}while(contador<=200);
 	system("pause");
 }
