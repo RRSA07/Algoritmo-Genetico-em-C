@@ -1,4 +1,4 @@
-# Algoritmo-Genetico-em-C
+# Algoritmo Genetico em C
 Power coupling between different size waveguides have been successfully and efficiently optimized by using an evolutionary algortithm based on the artificial immune system in conjunction with the finite element method.
 
 The proposed AIS algorithm has the following stages: 
